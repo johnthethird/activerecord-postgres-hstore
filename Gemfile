@@ -3,14 +3,14 @@ source "http://rubygems.org"
 gem 'rails'
 gem 'rake'
 
-platforms :jruby do
-  gem 'activerecord-jdbc-adapter'
-  gem 'jdbc-postgres', :require => false
-end
+# platforms :jruby do
+#   gem 'activerecord-jdbc-adapter'
+#   gem 'jdbc-postgres', :require => false
+# end
 
-platforms :ruby do
-  gem 'pg'
-end
+# platforms :mri do
+#   gem 'pg'
+# end
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

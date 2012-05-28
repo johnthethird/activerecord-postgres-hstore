@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juan Maiz", "Diogo Biazus"]
-  s.date = "2012-05-22"
+  s.date = "2012-05-28"
   s.description = "This gem adds support for the postgres hstore type. It is the _just right_ alternative for storing hashes instead of using seralization or dynamic tables."
   s.email = "juanmaiz@gmail.com"
   s.extra_rdoc_files = [
@@ -95,7 +95,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/softa/activerecord-postgres-hstore"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.24"
   s.summary = "Goodbye serialize, hello hstore"
 
   if s.respond_to? :specification_version then
@@ -104,7 +104,6 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, [">= 0"])
       s.add_runtime_dependency(%q<rake>, [">= 0"])
-      s.add_runtime_dependency(%q<pg>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.1.3"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
@@ -114,7 +113,6 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<rails>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<pg>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.1.3"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
@@ -125,7 +123,6 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<rails>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<pg>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.1.3"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
