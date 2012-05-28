@@ -2,7 +2,15 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 gem 'rails'
 gem 'rake'
-gem 'pg'
+
+platforms :jruby do
+  gem 'activerecord-jdbc-adapter'
+  gem 'jdbc-postgres', :require => false
+end
+
+platforms :ruby do
+  gem 'pg'
+end
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

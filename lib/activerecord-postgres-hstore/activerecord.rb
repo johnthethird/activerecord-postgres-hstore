@@ -117,7 +117,7 @@ module ActiveRecord
 
     end
 
-    class PostgreSQLColumn < Column
+    class PostgreSQLColumn
       # Does the type casting from hstore columns using String#from_hstore or Hash#from_hstore.
       def type_cast_code_with_hstore(var_name)
         type == :hstore ? "#{var_name}.from_hstore" : type_cast_code_without_hstore(var_name)
@@ -127,12 +127,12 @@ module ActiveRecord
       def simplified_type_with_hstore(field_type)
         field_type == 'hstore' ? :hstore : simplified_type_without_hstore(field_type)
       end
-    
+
       alias_method_chain :type_cast_code, :hstore
       alias_method_chain :simplified_type, :hstore
     end
 
-    class PostgreSQLAdapter < AbstractAdapter
+    class PostgreSQLAdapter
       def native_database_types_with_hstore
         native_database_types_without_hstore.merge({:hstore => { :name => "hstore" }})
       end
@@ -140,14 +140,14 @@ module ActiveRecord
       # Quotes correctly a hstore column value.
       def quote_with_hstore(value, column = nil)
         if value && column && column.sql_type == 'hstore'
-          raise HstoreTypeMismatch, "#{column.name} must have a Hash or a valid hstore value (#{value})" unless value.kind_of?(Hash) || value.valid_hstore?          
+          raise HstoreTypeMismatch, "#{column.name} must have a Hash or a valid hstore value (#{value})" unless value.kind_of?(Hash) || value.valid_hstore?
           return quote_without_hstore(value.to_hstore, column)
         end
         quote_without_hstore(value,column)
       end
-      
+
       alias_method_chain :quote, :hstore
-      alias_method_chain :native_database_types, :hstore 
+      alias_method_chain :native_database_types, :hstore
     end
   end
 end
